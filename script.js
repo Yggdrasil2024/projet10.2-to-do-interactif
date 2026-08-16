@@ -29,3 +29,19 @@ formular.addEventListener("submit", (event) => {
 
   //saveTasks(tasks);
 });
+
+
+/**
+ * fonction pour enregistrer les taches dans localStorage
+ * 
+ * @param {Array} array - les taches à enregistrer
+ * @returns 
+ */
+const saveTasks = (array) => {
+  if (array.length !== 0) {
+    localStorage.setItem("saved_tasks") = JSON.stringify(tasks);
+    return true;
+  }
+  return false;
+}
+
