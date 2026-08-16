@@ -31,7 +31,37 @@ formular.addEventListener("submit", (event) => {
   formular.reset();
 });
 
+//fonction pour effacer une tache
+const deleteTask = (id_item) => {
+  //on supprime la tache de l'interface
+  const item = document.getElementById(id_item);
+  item.remove();
 
+  //on suprime la tache du local storage
+  tasks = tasks.filter((item) => item.id !== id_item);
+  saveTasks(tasks);
+
+  //on initialise l'ui si le tableau redevient vide
+  if (tasks.length === 0) {
+    initUI();
+  }
+};
+
+//permert de marker une taches comme completée
+const markAsCompleted = (item_id) => {
+  const item = document.getElementById(item_id);
+  item.remove();
+
+  tasks = tasks.map((task) => {
+    if (task.id === item_id) {
+      return { ...task, isCompleted: true };
+    }
+    return task;
+  });
+
+  saveTasks(tasks);
+  initUI();
+};
 
 /**
  * fonction pour enregistrer les taches dans localStorage
@@ -59,13 +89,20 @@ const buildHtmlFor = (task) => {
 //fonction qui ajoute une tache dans l'ui
 const addToTasksUI = (task, isCompleted = false) => {
   let ParentElement = isCompleted ? completedTasks : onGoingTasks;
+
+  //suppression du place holder
+  const placeholder = document.getElementById("unwanted") || "";
+  if (placeholder) {
+    placeholder.remove();
+  }
+
   const taskItem = document.createElement("li");
   taskItem.classList.add("card");
   taskItem.classList.add("list__item");
   taskItem.classList.add("appear");
   taskItem.setAttribute("id", task.id);
   taskItem.innerHTML = buildHtmlFor(task);
-  if (task.length === 0) ParentElement.innerHTML = "";
+
   return ParentElement.appendChild(taskItem);
 };
 
@@ -100,13 +137,13 @@ const initUI = () => {
   completedTasks.innerHTML = "";
 
   if (tasks.length > 0) {
-    completedTasks.classList.add("hidden");
+    completedTasks.classList.remove("hidden");
 
     tasks.forEach((element) => {
       addToTasksUI(element, element.isCompleted);
     });
   } else {
-    onGoingTasks.innerHTML = `<p>Aucune tache pour le moment</p>`;
+    onGoingTasks.innerHTML = `<p id="unwanted">Aucune tache pour le moment</p>`;
     completedTasks.classList.add("hidden");
   }
 };
