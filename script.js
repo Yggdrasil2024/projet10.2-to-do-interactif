@@ -28,7 +28,7 @@ formular.addEventListener("submit", (event) => {
 
 
   //on ajout à l'ui des taches
-  addToTasksUI(newTask);
+  addToTasksUI(newTask, true);
 
   //saveTasks(tasks);
 });
@@ -60,13 +60,16 @@ const buildHtmlFor = (task) => {
             </div>`;
 }
 
-const addToTasksUI = (task) => {
+//fonction qui ajoute une tache dans l'ui
+const addToTasksUI = (task, isNew) => {
   const taskItem = document.createElement("li");
+  taskItem.classList.add("card");
+  taskItem.classList.add("list__item");
   taskItem.classList.add("appear");
   taskItem.setAttribute('id', task.id);
   taskItem.innerHTML = buildHtmlFor(task);
-  return onGoingTasks.appendChild(taskItem);
-}
+  return isNew ? onGoingTasks.appendChild(task) : completedTasks.appendChild(task);
+};
 
 /**
  * fonction qui va generer un id aleatoire
