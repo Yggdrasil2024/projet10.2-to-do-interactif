@@ -190,7 +190,7 @@ ul {
   main {
     display: flex;
     justify-content: center;
-    align-items: stretch !important;
+    align-items: center;
   }
 }
 

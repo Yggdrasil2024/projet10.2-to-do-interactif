@@ -49,12 +49,9 @@ const deleteTask = (id_item) => {
 
 //permert de marker une taches comme completée
 const markAsCompleted = (item_id) => {
-  const item = document.getElementById(item_id);
-  item.remove();
-
   tasks = tasks.map((task) => {
     if (task.id === item_id) {
-      return { ...task, isCompleted: true };
+      return { ...task, isCompleted: !task.isCompleted };
     }
     return task;
   });
@@ -142,6 +139,11 @@ const initUI = () => {
     tasks.forEach((element) => {
       addToTasksUI(element, element.isCompleted);
     });
+
+    //message pour l'absence de taches en cours
+    if (onGoingTasks.children.length === 0) {
+      onGoingTasks.innerHTML = `<p id="unwanted">Aucune tâche en cours</p>`;
+    }
   } else {
     onGoingTasks.innerHTML = `<p id="unwanted">Aucune tache pour le moment</p>`;
     completedTasks.classList.add("hidden");
