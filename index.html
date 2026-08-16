@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do | Akieny academy</title>
+    <link rel="stylesheet" href="assets/styles/styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Task Master</h1>
+            <p class="subtitle">Semaine 10.2 — Projet intermediaire</p>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="tasks-container">
+                <h2>Tasks</h2>
+                <section class="on__going">
+                    <h3>en cours</h3>
+                    <ul id="ongoing__list" class="ongoing__list">
+                        <li class="card list__item">
+                            <p>taches a faire</p>
+                            <div class="btn__area">
+                                <button class="btn" type="button">Mark as completed</button>
+                                <button class="btn btn_rm" type="button">delete</button>
+                            </div>
+                        </li>
+                        <li class="card list__item">
+                            <p>taches a faire</p>
+                            <div class="btn__area">
+                                <button class="btn" type="button">Mark as completed</button>
+                                <button class="btn btn_rm" type="button">delete</button>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+                <section class="completed">
+                    <h3>terminé</h3>
+                    <ul id="completed__list" class="completed__list">
+                        <li class="card list__item">
+                            <p>taches a faire</p>
+                            <div class="btn__area">
+                                <button class="btn" type="button">unmark</button>
+                                <button class="btn btn_rm" type="button">delete</button>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <div class="form_container">
+                <form id="formular" class="card">
+                    <h2>Ajouter une taches</h2>
+                    <div class="form-field-container">
+                        <label for="task_title">Labelle</label>
+                        <input type="text" name="task_title" id="task_title" placeholder="ex: faire les courses"
+                            required>
+                    </div>
+                    <div class="form-field-container">
+                        <button class="btn" type="submit">ajouter</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <p>Akieni Academy — Cohorte 2 — 2026</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
