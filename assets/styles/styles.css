@@ -64,6 +64,7 @@ body {
   color: var(--texte);
   background: var(--color-bg);
   padding: var(--espace);
+  position: relative;
 }
 
 .container {
@@ -123,6 +124,9 @@ ul {
   align-items: flex-start;
   align-items: stretch;
   gap: var(--space-1);
+  overflow-y: scroll;
+  border-radius: var(--radius-md);
+  padding: var(--space-1);
 }
 
 .card {
@@ -167,6 +171,11 @@ ul {
   text-decoration: line-through;
 }
 
+.ongoing__list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
 @media screen and (min-width: 1024px) {
   .tasks-container {
     display: grid;
@@ -181,7 +190,7 @@ ul {
   main {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch !important;
   }
 }
 
@@ -255,4 +264,23 @@ form input:focus {
   background-color: var(--color-surface);
   border-top: 1px solid var(--color-border);
   padding: var(--space-4) 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.appear {
+  animation: appear 0.2s ease-in-out;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
