@@ -22,10 +22,13 @@ formular.addEventListener("submit", (event) => {
   newTask.label = taskTitle;
   newTask.isCompleted = false;
   //on ajoute le tous dans les taches
- // tasks.unshift(newTask);
+ tasks.unshift(newTask);
+ //alert(`${newTask.id} ${newTask.label} ${newTask.isCompleted}`);
+//alert(JSON.stringify(tasks));
+
 
   //on ajout à l'ui des taches
-  //addToTasksUI(newTask);
+  addToTasksUI(newTask);
 
   //saveTasks(tasks);
 });
@@ -79,12 +82,12 @@ const idGenerator = () => {
     id[index] = char[Math.floor(Math.random() * char.length)];
   }
   //on genere un autre id si celui là existe deja
-  if (operations) {
-    const operationsIds = operations.map((item) => {
+  if (tasks) {
+    const tasksIds = tasks.map((item) => {
       return item.id;
     });
 
-    if (operationsIds.includes(id.join(""))) {
+    if (tasksIds.includes(id.join(""))) {
       return idGenerator();
     }
   }
