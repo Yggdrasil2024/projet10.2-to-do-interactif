@@ -57,4 +57,12 @@ const buildHtmlFor = (task) => {
             </div>`;
 }
 
+const addToTasksUI = (task) => {
+  const taskItem = document.createElement("li");
+  taskItem.classList.add("appear");
+  taskItem.setAttribute('id', task.id);
+  taskItem.innerHTML = buildHtmlFor(task);
+  return onGoingTasks.appendChild(taskItem);
+}
+
 
