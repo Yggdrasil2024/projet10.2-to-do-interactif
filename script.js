@@ -45,3 +45,16 @@ const saveTasks = (array) => {
   return false;
 }
 
+/**
+ * fonction qui va renvoyer le html d'une tache
+ * @param {object} task - la tache dont on batis l'html
+ */
+const buildHtmlFor = (task) => {
+  return `<p>${task.label}</p>
+            <div class="btn__area">
+              <button onclick="markAsCompleted('${task.id}')" class="btn" type="button">${task.isCompleted ? 'unmark': 'mark as completed'}</button>
+              <button onclick="deleteTask('${task.id}')" class="btn btn_rm" type="button">delete</button>
+            </div>`;
+}
+
+
