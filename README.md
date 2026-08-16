@@ -22,11 +22,11 @@ projet de to do list assez simplet permettant l'ajout, le markage et la deletion
 
 ### Version Desktop
 
-<img src="asset/img/demo.png" alt="">
+<img src="assets/img/demo.png" alt="">
 
 ### version mobile
 
-<img src="asset/img/mobile.png" alt=""> |
+<img src="assets/img/mobile.png" alt=""> |
 
 ## Technologies utilisées
 
@@ -55,6 +55,7 @@ projet10.2-todo-list/
 ```bash
 git clone https://github.com/Yggdrasil2024/projet10.2-to-do-interactif.git && cd projet10.2-to-do-interactif
 ```
+
 ensuite ouvrez le avec visual studio de preference et lancer le projet avec l'extension `live server`;
 
 ## Auteur
